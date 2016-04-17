@@ -7,7 +7,7 @@ const Joi = require('joi');
 const DBConfig = require('./config/DBConfig');
 var uuid = require('node-uuid');
 let server = new Hapi.Server();
-server.connection({ port: 8080 });
+server.connection({ port: 80 });
 
 
 
@@ -83,7 +83,7 @@ server.route({
                     "frequency": request.payload.frequency,
                     "creationDate": request.payload.creationDate,
                     "deadlineDate": request.payload.deadlineDate,
-                    "endDate": request.payload.deadlineDate,
+                    "endDate": request.payload.endDate,
                     "counter":[]};
 
                 var db = request.server.plugins['hapi-mongodb'].db;
