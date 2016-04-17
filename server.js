@@ -64,7 +64,7 @@ server.route({
     handler: (request, reply) => {
                 var db = request.server.plugins['hapi-mongodb'].db;
                 db.collection('users').findOne({"email" : request.payload.email, "password": request.payload.password}, (err, result) => {
-                    if(err) return reply(Boom.internal('Internal MongoDB error', err));
+                    if(err) return {"success": "fail"};
                     return reply(result);
                 })
             }
