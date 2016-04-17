@@ -64,7 +64,7 @@ server.route({
     handler: (request, reply) => {
                 var db = request.server.plugins['hapi-mongodb'].db;
                 db.collection('users').findOne({"email" : request.payload.email, "password": request.payload.password}, (err, result) => {
-                    if(err) return {"success": "fail"};
+                    if(err) return reply({"success": "fail"});
                     return reply(result);
                 })
             }
