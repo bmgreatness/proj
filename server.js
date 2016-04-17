@@ -85,7 +85,8 @@ server.route({
                     "deadlineDate": request.payload.deadlineDate,
                     "endDate": request.payload.endDate,
                     "counter":[]};
-
+                    console.log(request.payload);
+                    
                 var db = request.server.plugins['hapi-mongodb'].db;
                 db.collection('users').findOne({"id" : request.params.id}, (err, result) => {
                         
@@ -162,7 +163,7 @@ server.route({
             }
 
 })
-http://localhost:8080/user/5cb83a11-18f6-41fb-b5bd-6da465ef1954/tasks/3eff85ba-98df-42a6-9cc1-336946928cdd/edit
+
 server.route({
     method: 'POST',
     path: '/user/{id}/tasks/{task_id}/edit',
