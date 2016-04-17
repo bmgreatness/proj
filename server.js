@@ -85,13 +85,14 @@ server.route({
                     "deadlineDate": request.payload.deadlineDate,
                     "endDate": request.payload.endDate,
                     "counter":[]};
-                    console.log(request.payload);
+                    console.log(task);
+
                     
                 var db = request.server.plugins['hapi-mongodb'].db;
                 db.collection('users').findOne({"id" : request.params.id}, (err, result) => {
                         
                         if(err) return reply(Boom.internal('Internal MongoDB error', err));
-                        
+                        console.log(result);
                         var user = result;
                         
                         user.tasks.push(task);
