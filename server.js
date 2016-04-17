@@ -86,6 +86,7 @@ server.route({
                     "endDate": request.payload.endDate,
                     "counter":[]};
                     console.log(task);
+                    console.log(request.params.id);
 
                     
                 var db = request.server.plugins['hapi-mongodb'].db;
